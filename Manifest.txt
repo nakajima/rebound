@@ -1,0 +1,9 @@
+History.txt
+Manifest.txt
+README.textile
+Rakefile
+rebound.gemspec
+lib/rebound.rb
+lib/core_ext/object.rb
+spec/rebound_spec.rb
+spec/spec_helper.rb
