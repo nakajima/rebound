@@ -1,9 +1,5 @@
 h1. rebound
 
-http://github.com/nakajima/rebound
-
-h2. DESCRIPTION:
-
 By default, instances of UnboundMethod can only be bound to objects that
 are a kind_of? the method's original class. Pretty lame.
 
@@ -12,31 +8,35 @@ bound to objects of any class. It uses the alias_method_chain pattern to
 accomplish this, meaning you also get a bind_without_indifference method
 that retains the original behavior.
 
-h2. USAGE
+"http://github.com/nakajima/rebound":http://github.com/nakajima/rebound
 
-  class Guy
-    def greet
-      puts "Hello!"
-    end
+h3. USAGE
+
+<pre>
+class Guy
+  def greet
+    puts "Hello!"
   end
+end
 
-  class Girl
-    # No #greet method here
-  end
+class Girl
+  # No #greet method here
+end
 
-  girl = Girl.new
+girl = Girl.new
 
-  m = Guy.instance_method(:greet)
+m = Guy.instance_method(:greet)
 
-  m.bind(girl)
+m.bind(girl)
 
-  girl.greet # => Hello!
+girl.greet # => Hello!
+</pre>
 
-h2. TODO:
+h3. TODO:
 
 * Has trouble with methods that take a block as an argument.
 
-h2. REQUIREMENTS:
+h3. REQUIREMENTS:
 
 * ParseTree
 * Ruby2Ruby
