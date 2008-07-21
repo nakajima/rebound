@@ -3,7 +3,8 @@ require File.join(File.dirname(__FILE__), 'spec_helper')
 describe UnboundMethod do
   before(:each) do
     @a = Class.new { def foo; :bar end }
-    @b = Class.new
+    @b = Class.new { def called?; @called end }
+    @mod = Module.new { def call; @called = true; end }
     @object_a = @a.new
     @object_b = @b.new
   end
@@ -74,6 +75,13 @@ describe UnboundMethod do
       m = @object_a.method(:append).unbind
       m.bind(@object_b)
       @object_b.append { :addition }.should == [:original, :addition]
+    end
+    
+    it "should bind module instance method" do
+      m = @mod.instance_method(:call)
+      m.bind(@object_b)
+      @object_b.call
+      @object_b.should be_called
     end
   end
   
