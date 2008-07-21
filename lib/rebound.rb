@@ -38,7 +38,7 @@ class UnboundMethod
   # of only those of the same class. Goes with original #bind method
   # first, and if that fails, meta_def's using #to_proc
   def bind_with_indifference(obj)
-    bind_without_indifference(obj) rescue class<<obj;self;end.class_eval(to_s(:ruby))
+    bind_without_indifference(obj) rescue class << obj; self end.class_eval(to_s(:ruby))
   end
   alias_method :bind, :bind_with_indifference
 end
