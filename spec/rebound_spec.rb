@@ -15,6 +15,19 @@ describe UnboundMethod do
     end
   end
   
+  describe "#to_s" do
+    it "should provide source" do
+      m = @a.instance_method(:foo)
+      m.to_s(:ruby).should == "def foo()\n  :bar\nend"
+    end
+    
+    it "should be memoized" do
+      m = @a.instance_method(:foo)
+      m.should_receive(:to_ruby).once.and_return(proc { :bar }.to_ruby)
+      2.times { m.to_s(:ruby) }
+    end
+  end
+  
   describe "#bind" do
     it "should bind method from Class.instance_method to object of different class" do
       m = @a.instance_method(:foo)
@@ -50,19 +63,17 @@ describe UnboundMethod do
     end
     
     it "should bind methods that take block" do
-      pending("can't pass &block in block args") do
-        class << @object_a
-          def append(&block)
-            res = [:original]
-            res << yield
-            res
-          end
+      class << @object_a
+        def append(&block)
+          res = [:original]
+          res << yield
+          res
         end
-      
-        m = @object_a.method(:append).unbind
-        m.bind(@object_b)
-        @object_b.append(:addition).should == [:original, :addition]
       end
+    
+      m = @object_a.method(:append).unbind
+      m.bind(@object_b)
+      @object_b.append { :addition }.should == [:original, :addition]
     end
   end
   

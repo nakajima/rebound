@@ -12,9 +12,9 @@ class Object
   end
   
   # Define a singleton method on an object.
-  def meta_def(name, &block)
+  def meta_def(name, method_def=nil, &block)
     meta_eval do
-      define_method(name, &block)
+      method_def ? class_eval(method_def) : define_method(name, &block)
     end
   end
 end

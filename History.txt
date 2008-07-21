@@ -1,3 +1,14 @@
+=== 0.0.2 / 2008-07-21
+
+* Added JavaScript-esque ability to show method definition
+  for unbound methods like so:
+  
+    m = Person.instance_method(:hello)
+    puts m.to_s(:ruby)
+
+* Using new to_s abilities to enable the binding of unbound
+  methods that take block arguments.
+
 === 0.0.1 / 2008-07-20
 
 * Had an idea. Made it a gem.
