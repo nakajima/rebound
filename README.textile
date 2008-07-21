@@ -34,7 +34,8 @@ girl.greet # => Hello!
 
 h3. TODO:
 
-* Has trouble with methods that take a block as an argument.
+* Could probably use some more specs, since I'm pretty sure I didn't think
+  of everything.
 
 h3. REQUIREMENTS:
 
