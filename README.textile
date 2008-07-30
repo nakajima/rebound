@@ -42,6 +42,10 @@ h3. REQUIREMENTS:
 * ParseTree
 * Ruby2Ruby
 
+h3. Credit
+
+I'm just standing on "Ryan Davis'":http://www.zenspider.com shoulders with
+this project. He did all the hard work. I just did something cool with it.
 
 Copyright (c) 2008 Pat Nakajima
 
