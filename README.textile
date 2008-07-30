@@ -49,6 +49,9 @@ this project. He did all the hard work. I just did something cool with it.
 (Which isn't to say that what he did wasn't cool, since what he did is *way*
 cooler than what you see here.)
 
+Also, "Magnus Holm":http://judofyr.net contributed a patch that made things
+cleaner behind the scenes.
+
 Copyright (c) 2008 Pat Nakajima
 
   Permission is hereby granted, free of charge, to any person obtaining
