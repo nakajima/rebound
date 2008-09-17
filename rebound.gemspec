@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.description = %q{By default, instances of UnboundMethod can only be bound to objects that are a kind_of? the method's original class. Pretty lame.  rebound allows unbound methods (instances of UnboundMethod class) to be bound to objects of any class. It uses the alias_method_chain pattern to accomplish this, meaning you also get a bind_without_indifference method that retains the original behavior.}
   s.email = ["patnakajima@gmail.com"]
   s.extra_rdoc_files = ["History.txt", "Manifest.txt", "README.textile"]
-  s.files = ["History.txt", "Manifest.txt", "README.textile", "Rakefile", "lib/rebound.rb", "lib/core_ext/object.rb", "spec/rebound_spec.rb", "spec/spec_helper.rb", "rebound.gemspec"]
+  s.files = ["History.txt", "Manifest.txt", "README.textile", "Rakefile", "lib/rebound.rb", "spec/rebound_spec.rb", "spec/spec_helper.rb", "rebound.gemspec"]
   s.has_rdoc = true
   s.homepage = %q{http://github.com/nakajima/rebound}
   s.rdoc_options = ["--main", "README.textile"]
